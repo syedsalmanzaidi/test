@@ -61,9 +61,9 @@ const changemode=()=>{
   <Navbar title="TextUtiles " mode={mode}  changemode={changemode} about="About us" />
   <Alert alert={alert}/>
     <Routes>
-    <Route  path='/home' element={<Textform heading="  Try TextUtiles- Word Counter , Charactor Counter , Remove extra spaces" showAlert={showAlert} mode={mode}/>} > </Route>
-    <Route exact path='/' element={<Textform heading="Try TextUtiles- Word Counter , Charactor Counter , Remove extra spaces" showAlert={showAlert} mode={mode}/>} > </Route>
-      <Route path='/about' element={  <About   mode={mode}  />}></Route>
+    <Route exact path='/' element={<Textform heading="Enter the text to analysis" showAlert={showAlert} mode={mode}/>} > </Route>
+    <Route  path='/home' element={<Textform heading="Enter the text to analysis" showAlert={showAlert} mode={mode}/>} > </Route>
+      <Route path='/about' element={  <About/>}></Route>
       
       
 
