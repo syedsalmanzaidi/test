@@ -1,20 +1,14 @@
 import { BrowserRouter , Routes , Route} from 'react-router-dom';
-
-
 import { useState } from 'react';
 import './App.css';
 import About from './components/About';
 import  Navbar  from "./components/Navbar";
 import  Textform  from "./components/Textform";
 import  Alert  from "./components/Alert";
-
 import PropsTypes from 'prop-types'
-
 function App() {
   const [mode, setMode] = useState('light');
-
   const [alert, setAlert] = useState(null)
-
 const showAlert=(message,type)=>{
   setAlert({
     msg:message,
@@ -24,9 +18,6 @@ const showAlert=(message,type)=>{
     setAlert(null)
   }, 1500);
 }
-
-
-
 const changemode=()=>{
   if(mode==='light'){
     setMode('dark')
@@ -37,10 +28,8 @@ const changemode=()=>{
     setMode('light')
     document.body.style.backgroundColor='white'
     showAlert("Light mode have been Enabled","Success")
-  }
-  
+  } 
 }
-
 // Theme color
 // const [theme, setTheme] = useState('light');
 // const themechange=()=>{
@@ -61,13 +50,10 @@ const changemode=()=>{
   <Navbar title="TextUtiles " mode={mode}  changemode={changemode} about="About us" />
   <Alert alert={alert}/>
     <Routes>
-    <Route exact path='/' element={<Textform heading="Enter the text to analysis" showAlert={showAlert} mode={mode}/>} > </Route>
-    <Route  path='/home' element={<Textform heading="Enter the text to analysis" showAlert={showAlert} mode={mode}/>} > </Route>
-      <Route path='/about' element={  <About/>}></Route>
-      
-      
-
-    
+    <Route  path='/home' element={<Textform heading="Try TextUtiles - Word Counter , Charator , Counter , Remove extra spaces " showAlert={showAlert} mode={mode}/>} > </Route>
+   <Route exact path='/' element={<Textform heading="Try TextUtiles - Word Counter , Charator , Counter , Remove extra spaces " showAlert={showAlert} mode={mode}/>} > </Route>
+      <Route path='/about' element={  <About  mode={mode}  />}></Route>
+   
     </Routes>
   </BrowserRouter>
      
@@ -79,9 +65,8 @@ const changemode=()=>{
 
   );
 }
-
 export default App;
 
 Navbar.PropsTypes={title: PropsTypes.string,
                   about: PropsTypes.string}
-                  
+                                 
